@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Document</title>
+    {% endblock %}
+    <style>
+        nav
+        {
+            background-color: black;
+            padding: 20px;
+            display: flex;
+            justify-content:space-between ;
+            margin-right: 0px;   
+        }
+        nav>div>a
+        {
+            background-color: orange;
+            padding: 5px;
+            color: black;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        nav>div>a:hover
+        {
+            padding: 7px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <i>CONCEPT CARZ</i>
+        <div>
+        {% if user.is_authenticated %}
+            <a href="{% url 'profile_display' %}">profile</a>
+            <a href="{% url 'change_password' %}">change_password</a>
+            <a href="{% url 'user_logout' %}">LogOut</a>
+        {% else %}
+            <a href="{% url 'registration' %}">Register</a>
+            <a href="{% url 'user_login' %}">Log_in</a>  
+        {% endif %}  
+        </div>
+
+        
+    </nav>
+    {% block body_block %}
+    {% endblock %}
+</body>
+</html>

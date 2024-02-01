@@ -1,0 +1,21 @@
+{% extends 'Main.html' %}
+
+{% block title %}
+    <title>
+        profile_display
+    </title>
+{% endblock %}
+
+{% block body_block %}
+
+    <center>
+        <h1>Username is {{UO.username}}</h1>
+        <h1>Email is {{UO.email}}</h1>
+        <h1>Adress is {{PO.address}}</h1>
+
+        <h2>Profile image</h2>
+
+        <img src="{{PO.image.url}}" alt="" width="300px" height="300px">
+    </center>
+
+{% endblock %}
